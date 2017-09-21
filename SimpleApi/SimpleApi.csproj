@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <Platforms>x64</Platforms>
     <OutputType>Exe</OutputType>
-    <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
+    <PackageTargetFallback>$(PackageTargetFallback);</PackageTargetFallback>
     <StartupObject>SimpleApi.Program</StartupObject>
   </PropertyGroup>
 

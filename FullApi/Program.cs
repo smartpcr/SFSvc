@@ -1,10 +1,6 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Program.cs" company="Microsoft Corporation">
-//   Copyright (C) Microsoft Corporation.  All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
+﻿
 
-namespace SimpleApi
+namespace FullApi
 {
     using System;
     using System.IO;
@@ -15,9 +11,6 @@ namespace SimpleApi
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Logging;
 
-    /// <summary>
-    /// 
-    /// </summary>
     public class Program
     {
         private static IConfiguration _configuration;
@@ -53,13 +46,13 @@ namespace SimpleApi
                 {
                     // run callback on the transport thread
                     kestrelServerOptions.ApplicationSchedulingMode = SchedulingMode.Inline;
+
                     var address = IPAddress.Loopback;
                     var port = int.Parse(_configuration["hosting:port"]);
                     ServiceEventSource.Current.Message($"Service {_configuration["swagger:title"]} {_configuration["swagger:version"]} started listening on http://{address}:{port}");
-                    
                     kestrelServerOptions.Listen(
-                        IPAddress.Loopback,
-                        int.Parse(_configuration["hosting:port"]),
+                        address,
+                        port,
                         listenOptions =>
                         {
                             // Uncomment the following to enable Nagle's algorithm for this endpoint

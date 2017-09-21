@@ -29,9 +29,20 @@
     <None Include="Scripts\Deploy-FabricApplication.ps1" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\FullApi2\bin\Debug\**\*.*">
+      <Link>ApplicationPackageRoot\FullApi2Pkg\Code\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
+    <Content Include="..\SimpleApi2\bin\Debug\netcoreapp2.0\publish\**\*.*">
+      <Link>ApplicationPackageRoot\SimpleApi2Pkg\Code\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
+    <Content Include="ApplicationPackageRoot\FullApi2Pkg\Config\Settings.xml" />
+    <Content Include="ApplicationPackageRoot\FullApi2Pkg\ServiceManifest.xml" />
+    <Content Include="ApplicationPackageRoot\SimpleApi2Pkg\Config\Settings.xml" />
+    <Content Include="ApplicationPackageRoot\SimpleApi2Pkg\ServiceManifest.xml" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FullApi\FullApi.csproj" />
     <ProjectReference Include="..\SimpleApi\SimpleApi.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
