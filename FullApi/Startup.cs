@@ -72,7 +72,10 @@ namespace FullApi
 
                 var basePath = PlatformServices.Default.Application.ApplicationBasePath;
                 var xmlDocumentFile = Path.Combine(basePath, Configuration["swagger:xmlDocumentFile"]);
-                c.IncludeXmlComments(xmlDocumentFile);
+                if (File.Exists(xmlDocumentFile))
+                {
+                    c.IncludeXmlComments(xmlDocumentFile);
+                }
             });
         }
 
