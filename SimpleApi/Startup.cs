@@ -38,10 +38,10 @@ namespace SimpleApi
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
 
-            builder.AddAzureKeyVault(
-                $"https://{Configuration["azureKeyVault:vault"]}.vault.azure.net/",
-                Configuration["azureKeyVault:clientId"],
-                Configuration["azureKeyVault:clientSecret"]);
+            //builder.AddAzureKeyVault(
+            //    $"https://{Configuration["azureKeyVault:vault"]}.vault.azure.net/",
+            //    Configuration["azureKeyVault:clientId"],
+            //    Configuration["azureKeyVault:clientSecret"]);
         }
 
         /// <summary>
