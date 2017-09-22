@@ -2,10 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+    <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
     <Platforms>x64</Platforms>
-    <OutputType>Exe</OutputType>
-    <PackageTargetFallback>$(PackageTargetFallback);</PackageTargetFallback>
-    <StartupObject>SimpleApi.Program</StartupObject>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

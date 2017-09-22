@@ -10,10 +10,10 @@
     <ServiceManifestRef ServiceManifestName="FullApiPkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
   </ServiceManifestImport>
-  <ServiceManifestImport>
+  <!--<ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="SimpleApi2Pkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
-  </ServiceManifestImport>
+  </ServiceManifestImport>-->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="SimpleApiPkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
@@ -33,11 +33,11 @@
         <SingletonPartition />
       </StatelessService>
     </Service>
-    <Service Name="SimpleApi2" ServicePackageActivationMode="ExclusiveProcess">
+    <!--<Service Name="SimpleApi2" ServicePackageActivationMode="ExclusiveProcess">
       <StatelessService ServiceTypeName="SimpleApi2Type" InstanceCount="[SimpleApi2_InstanceCount]">
         <SingletonPartition />
       </StatelessService>
-    </Service>
+    </Service>-->
     <Service Name="SimpleApi" ServicePackageActivationMode="ExclusiveProcess">
       <StatelessService ServiceTypeName="SimpleApiType" InstanceCount="[SimpleApi_InstanceCount]">
         <SingletonPartition />
