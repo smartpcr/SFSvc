@@ -30,11 +30,17 @@ namespace SimpleApi
         {
             try
             {
+                FileLogger.Log("Trying to start [SimpleApi]...");
+                ServiceEventSource.Current.Message("Starting service [SimpleApi]");
                 BuildWebHost(args).Run();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                ServiceEventSource.Current.ServiceHostInitializationFailed(e.ToString());
+                FileLogger.Log(string.Format("{0}{1}{2}",
+                    ex.Message,
+                    Environment.NewLine,
+                    ex.StackTrace));
+                ServiceEventSource.Current.ServiceHostInitializationFailed(ex.ToString());
                 throw;
             }
         }

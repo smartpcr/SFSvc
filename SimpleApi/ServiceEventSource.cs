@@ -66,7 +66,27 @@ namespace SimpleApi
                 WriteEvent(MessageEventId, message);
             }
         }
-        
+
+        [NonEvent]
+        public void Error(string message, params object[] args)
+        {
+            if (this.IsEnabled())
+            {
+                string finalMessage = string.Format(message, args);
+                Error(finalMessage);
+            }
+        }
+
+        private const int ErrorEventId = 2;
+        [Event(ErrorEventId, Level = EventLevel.Error, Message = "{0}")]
+        public void Error(string message)
+        {
+            if (this.IsEnabled())
+            {
+                WriteEvent(ErrorEventId, message);
+            }
+        }
+
         private const int ServiceTypeRegisteredEventId = 3;
         [Event(ServiceTypeRegisteredEventId, Level = EventLevel.Informational, Message = "Service host process {0} registered service type {1}", Keywords = Keywords.ServiceInitialization)]
         public void ServiceTypeRegistered(int hostProcessId, string serviceType)
